@@ -1,5 +1,5 @@
 <template>
-  <div class="white-overlay">
+  <div class="loading-mask">
     <div id="circle" v-if="type === 'circle'">
       <svg v-bind:style="styles" class="spinner spinner--circle" v-bind:class="location" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
         <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
@@ -72,7 +72,6 @@ export default {
     },
     styles () {
       return {
-        width: this.size,
         height: this.size
       }
     }
