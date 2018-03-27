@@ -1,6 +1,6 @@
 <template>
   <div class="animated fadeIn">
-    <Loading :size="80" v-show="true"></Loading>
+    <Loading :size="60" v-show="true" type="circle" location="bottom-right"></Loading>
   </div>
 </template>
 

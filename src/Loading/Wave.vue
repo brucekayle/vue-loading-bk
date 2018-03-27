@@ -28,7 +28,6 @@ export default {
 </script>
 <style lang="scss" scoped>
   .spinner{
-
     * {
       line-height: 0;
       box-sizing: border-box;
