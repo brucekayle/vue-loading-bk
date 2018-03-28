@@ -7,7 +7,7 @@
             <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
           </svg>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
     <div id="circle8" v-if="type === 'circle8'">
@@ -20,7 +20,7 @@
             <div class="contener_mixte"><div class="ballcolor ball_4">&nbsp;</div></div>
           </div>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
     <div id="circle10" v-if="type === 'circle10'">
@@ -28,7 +28,7 @@
         <div v-bind:style="innerStyles" class="spinner-inner">
           <div class="loader-xbox"></div>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
     <div id="letterCube" v-if="type === 'letterCube'">
@@ -43,7 +43,7 @@
             <div class='cube-face cube-face-top'>N'</div>
           </div>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
     <div id="mikepad" v-if="type === 'mikepad'">
@@ -56,7 +56,7 @@
             <div class="line line3"></div>
           </div>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
     <div id="hourGlass" v-if="type === 'hourGlass'">
@@ -67,7 +67,7 @@
             <path class="outer" d="M93.7 95.3c10.5-7.7 26.3-19.4 26.3-41.9V0H0v53.4c0 22.5 15.8 34.2 26.3 41.9 3 2.2 7.9 5.8 9 7.7-1.1 1.9-6 5.5-9 7.7C15.8 118.4 0 130.1 0 152.6V206h120v-53.4c0-22.5-15.8-34.2-26.3-41.9-3-2.2-7.9-5.8-9-7.7 1.1-2 6-5.5 9-7.7zM70.6 103c0 18 35.4 21.8 35.4 49.6V192H14v-39.4c0-27.9 35.4-31.6 35.4-49.6S14 81.2 14 53.4V14h92v39.4C106 81.2 70.6 85 70.6 103z"/>
           </svg>
         </div>
-        <div class="loading-text">{{text}}</div>
+        <div class="loading-text" v-bind:style="{fontSize: size / 4.4 + 'px'}">{{text}}</div>
       </div>
     </div>
   </div>
@@ -97,6 +97,9 @@ export default {
       if (size > 80) {
         size = 80
       }
+      if (this.type === 'letterCube' || this.type === 'circle10') {
+        size = Math.sqrt(Math.pow(size / 2, 2) * 2)
+      }
       return {
         transform: 'scale(' + (size / 44) + ')',
         marginTop: ((size - 44) / 2) + 'px'
@@ -108,8 +111,8 @@ export default {
         size = 80
       }
       return {
-        width: this.text === '' ? size + 'px' : size + 25 + 'px',
-        height: this.text === '' ? size + 'px' : size + 25 + 'px'
+        width: this.text === '' ? size + 'px' : size + 20 + 'px',
+        height: this.text === '' ? size + 'px' : size + 20 + 'px'
       }
     }
   }
