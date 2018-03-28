@@ -2,7 +2,7 @@
   <div>
     <!-- 想要在区域内显示，请把父元素的position设置为非static值 -->
     <div style="background-color:red;height:300px;width:500px;position:relative">
-    <Loading :size="60" v-show="true" :type="type" location="inner-center"></Loading>
+    <Loading :size="80" v-show="true" :type="type" location="bottom-right" :inner="false" text=""></Loading>
     </div>
     <button @click="nextType">NEXT TYPE</button>
     
@@ -19,7 +19,7 @@ export default {
   data () {
   	return {
   	  type: 'circle',
-  	  types: ['circle', 'circle10', 'letterCube', 'mikepad', 'hourGlass'],
+  	  types: ['circle', 'circle8', 'circle10', 'letterCube', 'mikepad', 'hourGlass'],
   	  currentType: 0
   	}
   },
