@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, maximum-scale=1, minimum-scale=1, initial-scale=1, user-scalable=no, shrink-to-fit=no">
+  <title>Vue-infinite-loading Simple</title>
+  <script src="../node_modules/vue/dist/vue.js"></script>
+  <script src="../dist/build.js"></script>
+</head>
+<body>
+  <div id="app">
+    <div style="background-color:red;height:300px;width:500px;position:relative">
+      <Loading :size="30" v-show="true" :type="type" :location="location" :inner="true" :text="text"></Loading>
+    </div>
+    <button @click="nextType">NEXT TYPE</button>
+    <button @click="changeLocation">Change Location</button>
+    <input v-model="text"></input>
+  </div>
+  <script>
+    new Vue({
+      el: '#app',
+      data () {
+        return {
+          type: 'circle',
+          types: ['circle', 'circle8', 'circle10', 'letterCube', 'mikepad', 'hourGlass'],
+          currentType: 0,
+          location: 'center',
+          text: 'loading'
+        }
+      },
+      methods: {
+        nextType () {
+          if (this.currentType === this.types.length - 1) {
+            this.currentType = -1
+          }
+          this.currentType = this.currentType + 1
+          this.type = this.types[this.currentType]
+        },
+        changeLocation () {
+          if (this.location === 'center') {
+            this.location = 'bottom-right'
+          } else {
+            this.location = 'center'
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
